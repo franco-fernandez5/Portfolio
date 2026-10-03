@@ -1,0 +1,189 @@
+/* ========== VARIABLES: cambiá colores acá y se actualiza todo ========== */
+:root {
+    --fondo: #660b0b;          /* fondo general de la página */
+    --panel: #2a2a30;          /* fondo de cada cuadro/sección */
+    --panel-2: #34343c;        /* fondo de elementos dentro de un cuadro */
+    --borde: #44444f;
+    --texto: #f2f2f2;
+    --texto-suave: #b8b8c4;
+    --acento: #0f0413;         /* violeta claro, legible sobre fondo oscuro */
+    --acento-fuerte: #2f2e2f;  /* tu violeta original */
+    --radio: 16px;
+    --ancho: 1100px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+    line-height: 1.6;
+}
+
+img { max-width: 100%; }
+h1, h2, h3 { line-height: 1.2; margin: 0 0 12px; }
+p { margin: 0 0 12px; color: var(--texto-suave); }
+
+/* ========== HEADER / NAV ========== */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    height: 65px;
+    background: var(--acento-fuerte);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
+}
+header h3 { margin: 0; font-size: 1.05rem; }
+nav { display: flex; gap: 6px; }
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: .9rem;
+    padding: 8px 14px;
+    border-radius: 999px;
+    transition: background .2s;
+}
+nav a:hover { background: rgba(255, 255, 255, .2); }
+
+/* ========== CONTENEDOR Y CUADROS ========== */
+main {
+    max-width: var(--ancho);
+    margin: 0 auto;
+    padding: 32px 20px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+/* Cada sección es un cuadro con borde */
+.cuadro {
+    background: var(--panel);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    padding: 32px;
+}
+.cuadro > h2 {
+    font-size: 1.5rem;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--borde);
+}
+
+/* ========== BOTONES ========== */
+.boton {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1px solid var(--acento);
+    background: var(--acento);
+    color: #2b360b;
+    font-weight: 600;
+    font-size: .9rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform .15s, background .2s;
+}
+.boton:hover { background: #cc8be4; transform: translateY(-2px); }
+.boton:focus-visible { outline: 3px solid white; outline-offset: 2px; }
+.boton.secundario { background: transparent; color: var(--texto); border-color: var(--borde); }
+.boton.secundario:hover { border-color: var(--acento); background: var(--panel-2); }
+
+/* ========== 1. PRESENTACIÓN ========== */
+.hero {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    padding: 0;
+    overflow: hidden;
+}
+.hero-cara {
+    background: var(--panel-2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+.cara {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--acento);
+}
+.hero-texto { padding: 48px 40px; display: flex; flex-direction: column; justify-content: center; }
+.hero-texto h1 { font-size: 2.4rem; }
+.hero-botones { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px; }
+
+/* ========== 2. SOBRE MÍ ========== */
+.sobre-mi p { max-width: 120ch; }
+
+/* ========== 3. APTITUDES ========== */
+.tech-list {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 14px;
+}
+.tech-item {
+    background: var(--panel-2);
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    padding: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1;
+    transition: border-color .2s;
+}
+.tech-item:hover { border-color: var(--acento); }
+.tech { max-height: 64px; max-width: 100%; object-fit: contain; }
+
+/* ========== 4. CURSOS ========== */
+.cursos { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.cursos li {
+    background: var(--panel-2);
+    border: 1px solid var(--borde);
+    border-left: 4px solid var(--fondo);
+    border-radius: 10px;
+    padding: 14px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* ========== 6. CONTACTO (footer) ========== */
+footer {
+    background: var(--panel);
+    border-top: 1px solid var(--borde);
+    padding: 40px 20px;
+    text-align: center;
+}
+footer a { color: var(--acento); }
+.contacto { display: flex; justify-content: center; gap: 16px; margin: 20px 0; }
+.contacto a {
+    background: var(--panel-2);
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    transition: border-color .2s, transform .2s;
+}
+.contacto a:hover { border-color: var(--acento); transform: translateY(-3px); }
+.red-social { height: 36px; width: 36px; object-fit: contain; background: #F2F2F2; border-radius: 8px; padding: 2px; }
+.creditos { font-size: .85rem; margin-top: 24px; }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1000px) {
+    nav { display: none; }              /* en celu se oculta el menú; podés cambiarlo */
+    .hero { grid-template-columns: 1fr; }
+    .hero-texto { padding: 32px 24px; }
+    .tech-list { grid-template-columns: repeat(3, 1fr); }
+    .proyectos { grid-template-columns: 1fr; }
+    .cuadro { padding: 24px 20px; }
+}
